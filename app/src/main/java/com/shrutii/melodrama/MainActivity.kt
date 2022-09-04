@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        checkForLogIn(isLoggedIn= AppSharedPref(this).getParam(StringUtils.APP_NAME,StringUtils.EMAIL,false )as Boolean?)
+        checkForLogIn(isLoggedIn= AppSharedPref(this).getParam(StringUtils.APP_NAME,StringUtils.IS_LOGGED_IN,false )as Boolean?)
     }
     private fun checkForLogIn(isLoggedIn:Boolean?=null){
         isLoggedIn?.let {

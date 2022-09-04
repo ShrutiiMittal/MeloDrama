@@ -1,5 +1,6 @@
 package com.shrutii.melodrama.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +8,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.shrutii.melodrama.R
+import com.shrutii.melodrama.models.UserModel
+import com.shrutii.melodrama.utils.AppSharedPref
+import com.shrutii.melodrama.utils.StringUtils
 
 class SignUp : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -66,7 +72,7 @@ class SignUp : AppCompatActivity() {
         {
             return "phone number is null"
         }
-        if(!password.text.equals(confirmPassword.text))
+        if(password.text.toString() !=(confirmPassword.text.toString()))
         {
             return "password didn't match"
         }
@@ -83,7 +89,12 @@ class SignUp : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("SignUp", "createUserWithEmail:success")
                     val user = auth.currentUser
-
+                     user?.let {
+                         uploadUser(user)
+                     }
+                         ?:run {
+                             Toast.makeText(this,"Something went wrong",Toast.LENGTH_SHORT).show()
+                         }
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("SignUP", "createUserWithEmail:failure", task.exception)
@@ -91,5 +102,23 @@ class SignUp : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun uploadUser(user:FirebaseUser)
+    {
+        val userModel=UserModel(user.uid,user.email.toString(),phoneNumber.text.toString(),name.text.toString())
+        val db = Firebase.firestore
+        db.collection("users").document(user.uid)
+            .set(userModel).addOnCompleteListener(this){
+                if(it.isSuccessful){
+                    AppSharedPref(this).setParam(StringUtils.APP_NAME,StringUtils.IS_LOGGED_IN,true)
+                    AppSharedPref(this).setParam(StringUtils.APP_NAME,StringUtils.USER,userModel)
+                    startActivity(Intent(this,CategoryScreen::class.java))
+                }
+                else{
+                    Toast.makeText(this,"Something went wrong",Toast.LENGTH_SHORT).show()
+                }
+            }
+
     }
 }
