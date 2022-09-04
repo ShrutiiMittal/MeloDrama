@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "585232498602",
+    "firebase_url": "https://melodrama-da649-default-rtdb.firebaseio.com",
+    "project_id": "melodrama-da649",
+    "storage_bucket": "melodrama-da649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585232498602:android:e24abadb569d165c4af5d3",
+        "android_client_info": {
+          "package_name": "com.shruti.melodrama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585232498602-6loi2onpl5uqchgjgvffblkigsno54eb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shruti.melodrama",
+            "certificate_hash": "6f09a0fe7d89461994d6202a1e13a7fa3451ed62"
+          }
+        },
+        {
+          "client_id": "585232498602-r47lkga6vppk7nmg71pjtphbhr5v0mh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp7TIqNt9qfOU9JvduK285I9NUU1tCowE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585232498602-r47lkga6vppk7nmg71pjtphbhr5v0mh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585232498602:android:4cb8102603200e1d4af5d3",
+        "android_client_info": {
+          "package_name": "com.shrutii.melodrama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585232498602-r47lkga6vppk7nmg71pjtphbhr5v0mh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp7TIqNt9qfOU9JvduK285I9NUU1tCowE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585232498602-r47lkga6vppk7nmg71pjtphbhr5v0mh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
