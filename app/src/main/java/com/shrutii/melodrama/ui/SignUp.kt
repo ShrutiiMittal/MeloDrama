@@ -26,8 +26,8 @@ class SignUp : AppCompatActivity() {
 
         auth = Firebase.auth
         signInButton=findViewById(R.id.signUpButton)
-        email=findViewById(R.id.emailid)
-        password=findViewById(R.id.password)
+        email=findViewById(R.id.emailText)
+        password=findViewById(R.id.PssText)
         name=findViewById(R.id.nametext)
         confirmPassword=findViewById(R.id.confirmPssText)
         phoneNumber=findViewById(R.id.MobileText)
