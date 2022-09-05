@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.shrutii.melodrama.ui.CategoryScreen
 import com.shrutii.melodrama.ui.LogInScreen
 import com.shrutii.melodrama.ui.SignUp
 import com.shrutii.melodrama.utils.AppSharedPref
@@ -21,12 +22,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, LogInScreen::class.java))
             }
             else
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this,CategoryScreen::class.java))
         }?:run {
             startActivity(Intent(this, LogInScreen::class.java))
         }
-
-
-
+        finish()
     }
 }
