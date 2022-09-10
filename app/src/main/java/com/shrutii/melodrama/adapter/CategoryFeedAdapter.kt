@@ -20,35 +20,23 @@ class CategoryFeedAdapter(val context: Context,val list :ArrayList<SongFeedModel
             else ->
                 CategoryItemsViewHolder(CategoryCategorylistBinding.inflate(LayoutInflater.from(parent.context),parent,false))
         }
-
-
-
     }
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)){
             CATEGORY_TITLE-> (holder as CategoryTitleViewHolder).bind(position)
             else->
                 (holder as CategoryItemsViewHolder).bind(position)
-
         }
-
-
     }
-
     override fun getItemCount(): Int =list.size
     inner class CategoryTitleViewHolder(val binding : CategoryTitleItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(pos:Int){
             binding.textView2.text=list[pos].categoryName.toString()
         }
-
     }
     inner class CategoryItemsViewHolder(val binding : CategoryCategorylistBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(pos:Int){
-        
         }
-
     }
-
     override fun getItemViewType(position: Int): Int = if (list[position].isCategoryList) CATEGORY_LIST else CATEGORY_TITLE
 }

@@ -15,12 +15,13 @@ import com.shrutii.melodrama.models.SongModel
 
 class CategoryScreen : AppCompatActivity() {
     private lateinit var database: DatabaseReference
-    private lateinit var vibeMap:HashMap<String,ArrayList<SongModel>>
+    private lateinit var vibeMap: HashMap<String, ArrayList<SongModel>>
+
     //private lateinit var songList: ArrayList<SongModel?>
     private lateinit var binding: ActivityCategoryScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityCategoryScreenBinding.inflate(layoutInflater)
+        binding = ActivityCategoryScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         getData()
 
@@ -29,35 +30,36 @@ class CategoryScreen : AppCompatActivity() {
     private fun getData() {
         database = Firebase.database.reference
         database.child("Sheet1").get().addOnCompleteListener {
-        vibeMap= hashMapOf()
+            vibeMap = hashMapOf()
             for (activitySnapShot in it.result.children) {
                 val receivedData: SongModel? =
                     activitySnapShot.getValue(SongModel::class.java)
-               val vibeData= vibeMap.get(receivedData?.Vibe)
+                val vibeData = vibeMap.get(receivedData?.Vibe)
                 vibeData?.let {
                     if (receivedData != null) {
                         it.add(receivedData)
-                        receivedData.Vibe?.let { it1 -> vibeMap.put(it1,it) }
+                        receivedData.Vibe?.let { it1 -> vibeMap.put(it1, it) }
                     }
                 }
-                    ?.run {
-                        receivedData?.Vibe?.let { it1 -> arrayListOf(receivedData).let { it2 ->
-                            vibeMap.put(it1,
-                                it2
-                            )
-                        }
+                    ?: run {
+                        receivedData?.Vibe?.let { it1 ->
+                            arrayListOf(receivedData).let { it2 ->
+                                vibeMap.put(
+                                    it1,
+                                    it2
+                                )
+                            }
                         }
                     }
             }
             initRV()
-            Log.wtf("sm/successful",vibeMap.toString())
+            Log.wtf("sm/successful", vibeMap.toString())
 
         }
-
-
     }
-    private fun initRV(){
-        binding.recyclerView.adapter=CategoryFeedAdapter(this,)
+
+    private fun initRV() {
+        // binding.recyclerView.adapter=CategoryFeedAdapter(this,)
     }
 
 
