@@ -3,6 +3,7 @@ package com.shrutii.melodrama.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shrutii.melodrama.databinding.CategoryCategorylistBinding
 import com.shrutii.melodrama.databinding.CategoryTitleItemBinding
@@ -36,6 +37,14 @@ class CategoryFeedAdapter(val context: Context,val list :ArrayList<SongFeedModel
     }
     inner class CategoryItemsViewHolder(val binding : CategoryCategorylistBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(pos:Int){
+            binding.recycleHorizontal.adapter=
+                list[pos].songList?.let {
+                    SongHorizontalListAdapter(context, it){
+
+                    }
+                }
+            binding.recycleHorizontal.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            binding.recycleHorizontal.hasFixedSize()
         }
     }
     override fun getItemViewType(position: Int): Int = if (list[position].isCategoryList) CATEGORY_LIST else CATEGORY_TITLE
