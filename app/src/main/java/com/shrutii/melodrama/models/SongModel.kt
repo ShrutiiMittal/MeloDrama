@@ -8,5 +8,6 @@ data class SongModel (
     val Released: Long?=null,
     val Genre:String?=null,
     val Links:String?=null,
-    val Vibe: String?=null
+    val Vibe: String?=null,
+    val Image: String?=null
         )
