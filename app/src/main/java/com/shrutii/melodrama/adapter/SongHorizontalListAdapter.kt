@@ -22,9 +22,10 @@ class SongHorizontalListAdapter(
             val temp = list[pos]?.Image?.split("/d/")?.get(1) ?: ""
             val temp2 = temp?.split("/").get(0)
             val img = "https://drive.google.com/uc?id=$temp2"
-            Log.e("as/log:: ", "  df  ")
+            //Log.e("as/log:: ", "  df  ")
             Glide.with(context).load(img).into(binding.songImage)
-            binding.songName.text = ""
+            binding.songName.text = list[pos].Song
+
         }
     }
 

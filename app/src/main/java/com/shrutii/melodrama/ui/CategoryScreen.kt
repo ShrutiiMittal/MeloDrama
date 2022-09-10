@@ -34,6 +34,7 @@ class CategoryScreen : AppCompatActivity() {
             for (activitySnapShot in it.result.children) {
                 val receivedData: SongModel? =
                     activitySnapShot.getValue(SongModel::class.java)
+                Log.e("sm/SongModel",receivedData.toString())
                 val vibeData = vibeMap.get(receivedData?.Vibe)
                 vibeData?.let {
                     if (receivedData != null) {
