@@ -27,6 +27,7 @@ class CategoryScreen : AppCompatActivity() {
         setContentView(binding.root)
         getData()
     }
+
     private fun getData() {
         database = Firebase.database.reference
         database.child("Sheet1").get().addOnCompleteListener {
@@ -34,7 +35,7 @@ class CategoryScreen : AppCompatActivity() {
             for (activitySnapShot in it.result.children) {
                 val receivedData: SongModel? =
                     activitySnapShot.getValue(SongModel::class.java)
-                Log.e("sm/SongModel",receivedData.toString())
+                Log.e("sm/SongModel", receivedData.toString())
                 val vibeData = vibeMap.get(receivedData?.Vibe)
                 vibeData?.let {
                     if (receivedData != null) {
@@ -53,26 +54,24 @@ class CategoryScreen : AppCompatActivity() {
                         }
                     }
             }
-           // initRV()
             parseData()
             Log.wtf("sm/successful", vibeMap.toString())
-
         }
     }
 
     private fun initRV() {
-         binding.recyclerView.adapter=CategoryFeedAdapter(this,songList){
+        binding.recyclerView.adapter = CategoryFeedAdapter(this, songList) {
 
-         }
-        binding.recyclerView.layoutManager=LinearLayoutManager(this)
+        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.hasFixedSize()
     }
-    private fun parseData(){
-        songList= arrayListOf()
-        for (category in vibeMap)
-        {
+
+    private fun parseData() {
+        songList = arrayListOf()
+        for (category in vibeMap) {
             songList.add(SongFeedModel(category.key))
-            songList.add(SongFeedModel("",category.value,true))
+            songList.add(SongFeedModel("", category.value, true))
         }
         initRV()
     }
