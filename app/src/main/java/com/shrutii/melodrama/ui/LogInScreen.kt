@@ -35,6 +35,7 @@ class LogInScreen : AppCompatActivity() {
     private fun click() {
         binding.signup.setOnClickListener() {
             startActivity(Intent(this, SignUp::class.java))
+            finish()
         }
         binding.button.setOnClickListener() {
             val isValid = checkField()

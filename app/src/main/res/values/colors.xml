@@ -9,9 +9,25 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="variant">#d45360</color>
-    <color name="primary">#c6283c</color>
+    <color name="primaryColor">#fed5ec</color>
+    <color name="primaryLightColor">#ffffff</color>
+    <color name="primaryDarkColor">#cba4ba</color>
+    <color name="secondaryColor">#faf6b8</color>
+    <color name="secondaryLightColor">#ffffeb</color>
+    <color name="secondaryDarkColor">#c6c388</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
 
-    <color name="second_variant">#d45b6c</color>
-    <color name="second">#e49c9c</color>
+
+    <color name="primaryColorNight">#67053c</color>
+    <color name="primaryLightColorNight">#983b66</color>
+    <color name="primaryDarkColorNight">#390016</color>
+    <color name="secondaryColorNight">#666107</color>
+    <color name="secondaryLightColorNight">#968e39</color>
+    <color name="secondaryDarkColorNight">#3a3700</color>
+    <color name="primaryTextColorNight">#ffffff</color>
+    <color name="secondaryTextColorNIght">#ffffff</color>
+
+
+
 </resources>
