@@ -110,6 +110,7 @@ class LogInScreen : AppCompatActivity() {
                             StringUtils.USER, userModel
                         )
                         startActivity(Intent(this, CategoryScreen::class.java))
+                        finish()
                     }
 
                 }

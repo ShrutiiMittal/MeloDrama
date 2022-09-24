@@ -1,10 +1,12 @@
 package com.shrutii.melodrama.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -14,6 +16,7 @@ import com.shrutii.melodrama.databinding.ActivityCategoryScreenBinding
 import com.shrutii.melodrama.databinding.CategoryCategorylistBinding
 import com.shrutii.melodrama.models.SongFeedModel
 import com.shrutii.melodrama.models.SongModel
+import com.shrutii.melodrama.utils.AppSharedPref
 
 
 class CategoryScreen : AppCompatActivity() {
@@ -27,6 +30,16 @@ class CategoryScreen : AppCompatActivity() {
         binding = ActivityCategoryScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         getData()
+        setOnClick()
+    }
+
+    private fun setOnClick() {
+        binding.logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            AppSharedPref(this).clear()
+            startActivity(Intent(this, LogInScreen::class.java))
+            finish()
+        }
     }
 
     private fun getData() {
