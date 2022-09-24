@@ -20,19 +20,50 @@
         <item name="android:textColor">@color/primaryTextColorNight</item>
     </style>
 
-    <style name="TextSH1">
-        <item name="fontFamily">@font/nexa_light</item>
+    <style name="TextH5">
+        <item name="fontFamily">@font/nexa_text_bold</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/primaryTextColorNight</item>
+    </style>
+
+    <style name="TextSH3">
+        <item name="fontFamily">@font/nexa_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/primaryTextColorNight</item>
+    </style>
+
+    <style name="TextSH5B">
+        <item name="fontFamily">@font/nexa_text_bold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/primaryTextColorNight</item>
+    </style>
+
+    <style name="TextSH5">
+        <item name="fontFamily">@font/nexa_text_light</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/primaryTextColorNight</item>
+    </style>
+
+
+    <style name="TextH3">
+        <item name="fontFamily">@font/nexa_bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/primaryTextColorNight</item>
+    </style>
+
+    <style name="TextH3P">
+        <item name="fontFamily">@font/nexa_text_bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/primaryDarkColorNight</item>
     </style>
 
     <style name="customRoundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">0dp</item>
-        <item name="cornerSizeTopRight">8dp</item>
-        <item name="cornerSizeTopLeft">8dp</item>
-        <item name="cornerSizeBottomLeft">8dp</item>
-        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeTopRight">10dp</item>
+        <item name="cornerSizeTopLeft">10dp</item>
+        <item name="cornerSizeBottomLeft">10dp</item>
+        <item name="cornerSizeBottomRight">10dp</item>
     </style>
 
     <style name="MyButtonText" parent="@android:style/Widget.Button">
