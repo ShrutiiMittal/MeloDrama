@@ -2,6 +2,7 @@ package com.shrutii.melodrama.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DatabaseReference
@@ -29,8 +30,10 @@ class CategoryScreen : AppCompatActivity() {
     }
 
     private fun getData() {
+        binding.progressCircular.visibility = View.VISIBLE
         database = Firebase.database.reference
         database.child("Sheet1").get().addOnCompleteListener {
+            binding.progressCircular.visibility = View.GONE
             vibeMap = hashMapOf()
             for (activitySnapShot in it.result.children) {
                 val receivedData: SongModel? =
