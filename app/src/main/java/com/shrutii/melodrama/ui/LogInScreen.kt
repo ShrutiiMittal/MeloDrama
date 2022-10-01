@@ -19,9 +19,10 @@ import com.shrutii.melodrama.R
 import com.shrutii.melodrama.databinding.ActivityLogInScreenBinding
 import com.shrutii.melodrama.models.UserModel
 import com.shrutii.melodrama.utils.AppSharedPref
+import com.shrutii.melodrama.utils.BaseActivity
 import com.shrutii.melodrama.utils.StringUtils
 
-class LogInScreen : AppCompatActivity() {
+class LogInScreen : BaseActivity() {
     private lateinit var binding: ActivityLogInScreenBinding
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {

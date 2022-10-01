@@ -10,6 +10,7 @@ import com.shrutii.melodrama.databinding.CategoryCategorylistBinding
 import com.shrutii.melodrama.databinding.CategoryTitleItemBinding
 import com.shrutii.melodrama.models.SongFeedModel
 import com.shrutii.melodrama.models.SongModel
+import kotlin.math.sin
 
 class CategoryFeedAdapter(val context: Context,val list :ArrayList<SongFeedModel>,val onClickSong:(currSong:SongModel)->Unit):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val CATEGORY_TITLE=0
@@ -41,8 +42,8 @@ class CategoryFeedAdapter(val context: Context,val list :ArrayList<SongFeedModel
             binding.recycleHorizontal.adapter=
                 list[pos].songList?.let {
 
-                    SongHorizontalListAdapter(context, it){
-
+                    SongHorizontalListAdapter(context, it){ song->
+                        onClickSong(song)
                     }
                 }
             binding.recycleHorizontal.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)

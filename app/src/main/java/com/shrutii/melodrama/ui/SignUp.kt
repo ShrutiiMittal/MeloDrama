@@ -17,9 +17,10 @@ import com.shrutii.melodrama.databinding.ActivityLogInScreenBinding
 import com.shrutii.melodrama.databinding.ActivitySignUpBinding
 import com.shrutii.melodrama.models.UserModel
 import com.shrutii.melodrama.utils.AppSharedPref
+import com.shrutii.melodrama.utils.BaseActivity
 import com.shrutii.melodrama.utils.StringUtils
 
-class SignUp : AppCompatActivity() {
+class SignUp : BaseActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivitySignUpBinding
 

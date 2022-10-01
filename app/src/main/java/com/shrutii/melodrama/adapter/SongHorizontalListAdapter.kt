@@ -26,6 +26,9 @@ class SongHorizontalListAdapter(
             Glide.with(context).load(img).placeholder(R.drawable.place_holder).centerCrop().into(binding.songImage)
             binding.songName.text = list[pos].Song
             binding.artistName.text = list[pos].Artist
+            binding.songCard.setOnClickListener {
+                onClickSong(list[pos])
+            }
         }
     }
 

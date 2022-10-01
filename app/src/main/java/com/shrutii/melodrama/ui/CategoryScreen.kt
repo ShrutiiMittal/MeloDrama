@@ -4,22 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.shrutii.melodrama.R
 import com.shrutii.melodrama.adapter.CategoryFeedAdapter
 import com.shrutii.melodrama.databinding.ActivityCategoryScreenBinding
-import com.shrutii.melodrama.databinding.CategoryCategorylistBinding
 import com.shrutii.melodrama.models.SongFeedModel
 import com.shrutii.melodrama.models.SongModel
 import com.shrutii.melodrama.utils.AppSharedPref
+import com.shrutii.melodrama.utils.BaseActivity
 
 
-class CategoryScreen : AppCompatActivity() {
+class CategoryScreen : BaseActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var vibeMap: HashMap<String, ArrayList<SongModel>>
 
@@ -77,7 +75,9 @@ class CategoryScreen : AppCompatActivity() {
 
     private fun initRV() {
         binding.recyclerView.adapter = CategoryFeedAdapter(this, songList) {
-
+            val bundle = Bundle()
+            bundle.putSerializable("songData",it)
+            startActivity(Intent(this, PlayerActivity::class.java).putExtras(bundle))
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.hasFixedSize()
